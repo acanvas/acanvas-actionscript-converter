@@ -1,18 +1,14 @@
 ## Pure Actionscript to Dart Conversion Helper (Pub Edition)
 
-### Fellow Actionscript Developers,
-so you've heard about Dart and StageXL and want to give it a shot.
-And you have a project or just some classes you want to port.
 
-While working with the DisplayList in StageXL is rather similar to
-what you know from Actionscript, everything else is so different
-that after converting half a class, you will either give up, or start from scratch.
+As an Actionscript developer, you've probably heard about Dart and StageXL by now and always wanted to give it a shot. Of course, you have a project or just some classes ready, that you want to port just to see what's going on.
 
-### Or: 
+Let me tell you this: while working with the DisplayList in StageXL feels rather similar to what you know from Actionscript, everything else is so different that after converting half a class, you will either give up, or start from scratch.
 
-You try this little tool, taking 90% of the pain out of the process.
+Luckily, this little tool will take about 190% of the pain out of the process. It will get as much out of the way for you as possible, so that you can concentrate on converting just the instructions that matter. Look further down to get an idea where the helper helps.
+
 #### By the way: 
-you are looking at the Pub Edition of the converter.
+You are looking at the Pub Edition of the converter.
 If you are rather new to Dart, I'd recommend cloning/downloading the Dart Project Edition:
 https://github.com/blockforest/actionscript-to-dart-project
 
