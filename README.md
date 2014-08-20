@@ -1,4 +1,4 @@
-## Pure Actionscript to Dart Conversion Helper (pub global edition)
+## Pure Actionscript to Dart Conversion Helper (Pub Edition)
 
 ### Fellow Actionscript Developers,
 so you've heard about Dart and StageXL and want to give it a shot.
@@ -12,7 +12,7 @@ that after converting half a class, you will either give up, or start from scrat
 
 You try this little tool, taking 90% of the pain out of the process.
 #### By the way: 
-you are looking at the pub global edition of the converter.
+you are looking at the Pub Edition of the converter.
 If you are rather new to Dart, I'd recommend cloning/downloading the Dart Project Edition:
 https://github.com/blockforest/actionscript-to-dart-project
 
