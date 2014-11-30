@@ -134,7 +134,7 @@ void _convert(String asFilePath) {
 /// differences in the respective API's.
 String _applyMagic(String f) {
 // replace package declaration
-  f = f.replaceAllMapped(new RegExp("(\\s*)package\\s+[a-z0-9.]+\\s*\\{"), (Match m) => "${m[1]} part of $dart_package_name;");
+  f = f.replaceAllMapped(new RegExp("(\\s*)package\\s+[A-Za-z0-9.]+\\s*\\{"), (Match m) => "${m[1]} part of $dart_package_name;");
   // remove closing bracket at end of class
   f = f.replaceAll(new RegExp("\\}\\s*\$"), "");
   // reposition override keyword
@@ -305,7 +305,7 @@ void _setupArgs(List args) {
 
   argParser.addFlag('help', negatable: false, help: 'Displays the help.', callback: (help) {
     if (help) {
-      print(argParser.getUsage());
+      print(argParser.usage);
       exit(1);
     }
   });
