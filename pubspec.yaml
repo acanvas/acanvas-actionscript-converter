@@ -1,10 +1,10 @@
-name: as3_to_dart
+name: stagexl_converter
 version: 0.1.0
 author: Nils Döhring <nilsdoehring@gmail.com>
 description: Pure Actionscript to Dart Conversion Helper. 'pub' Edition.
 homepage: https://github.com/blockforest/actionscript-to-dart-pub
 environment:
-  sdk: '>=1.6.0-dev'
+  sdk: '>=1.6.0'
 dependencies:
   args: any
   path: any
