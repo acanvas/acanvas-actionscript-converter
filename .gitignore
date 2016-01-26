@@ -1,4 +1,10 @@
-packages
+.idea
 .DS_Store
-.settings
-.project
+cache/
+.packages
+packages
+pubspec.lock
+build
+.buildlog
+.pub
+.settings/

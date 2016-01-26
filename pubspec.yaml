@@ -1,10 +1,12 @@
 name: stagexl_converter
-version: 0.1.0
+version: 0.2.0
 author: Nils Döhring <nilsdoehring@gmail.com>
-description: Pure Actionscript to Dart Conversion Helper. 'pub' Edition.
-homepage: https://github.com/blockforest/actionscript-to-dart-pub
+description: Pure Actionscript to Dart Conversion Helper. 'pub global' Edition.
+homepage: https://github.com/blockforest/stagexl-converter-pubglobal
 environment:
   sdk: '>=1.6.0'
 dependencies:
   args: any
   path: any
+executables:
+  stagexl_converter: null

@@ -305,7 +305,7 @@ void _setupArgs(List args) {
 
   argParser.addFlag('help', negatable: false, help: 'Displays the help.', callback: (help) {
     if (help) {
-      print(argParser.usage);
+      print(argParser.getUsage());
       exit(1);
     }
   });
