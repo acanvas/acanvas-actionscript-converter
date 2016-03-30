@@ -1,13 +1,34 @@
-## Pure Actionscript to Dart Conversion Helper (Pub Global Edition)
+## Röckdöt Converter - Pure Actionscript to StageXL Conversion Helper
+
+### Target Audience
+
+As an Actionscript developer, you've probably heard about [Dart](https://www.dartlang.org/) and [StageXL](http://www.stagexl.org/) by now and always wanted to give it a shot. 
+If you're like me, you'd have an ActionScript project or at least a few classes ready, that you would want to port just to see how things work out in Standard Land. 
+Because, let's face it, Flash in the browser doesn't have a future.
+
+So, I went down this path in 2014...
+
+### About Röckdöt Converter
+
+With the Dart syntax and StageXL API being quite similar to ActionScript, I wondered how I could port over to Dart in the laziest way possible, with as much automation as possible.
+I spent a bit on Abstract Syntax Tree conversion, but dropped it in favor of good old search and replace via Regular Expressions, 
+in order to be able to manually compare the converted file with the original in case of errors (which definitely will occur). 
+After a week of intense RegEx meditation (it was crazy), I was able to automate most of what's possible, more than enough to rely on the Dart Analyzer to identify any remaining conversion errors or incompatible APIs.
+
+So, have fun with this script, which will take up to 174% of pain out of the process, so that you can concentrate on converting just the instructions that matter. Look further down to get an idea where the helper helps.
+
+If you would like to see what evolved out of this tool I wrote in the summer of 2014, go to [Röckdöt Generator](https://github.com/blockforest/rockdot_generator). 
+
+## Röckdöt Converter - Usage 
+
+    $>  pub global activate --source git https://github.com/blockforest/stagexl-converter-pubglobal
+    
+    # <PATH> can be absolute or relative.
+    $> stagexl_converter --source <PATH> --target <PATH> --dart-package <DESIRED_PACKAGE_NAME>
+    
 
 
-As an Actionscript developer, you've probably heard about Dart and StageXL by now and always wanted to give it a shot. Of course, you have a project or just some classes ready, that you want to port just to see what's going on.
-
-Let me tell you this: while working with the DisplayList in StageXL feels rather similar to what you know from Actionscript, everything else is so different that after converting half a class, you will either give up, or start from scratch.
-
-Luckily, this little tool will take about 190% of the pain out of the process. It will get as much out of the way for you as possible, so that you can concentrate on converting just the instructions that matter. Look further down to get an idea where the helper helps.
-
-## What it does for you
+## What Röckdöt Converter does for you
 
 ### Packages
 - replace package declarations with 'part of' directive
@@ -54,7 +75,7 @@ Luckily, this little tool will take about 190% of the pain out of the process. I
 - order of BitmapData.draw and BitmapData.fillColor (pure magic!)
 
 
-## What it does not do for you.   
+## What Röckdöt Converter does not do for you.   
 Anything else. You'll have to manually deal with
 - differences between the API's of StageXL and Flash's DisplayList.
 - shortcomings of StageXL's DisplayList API's
@@ -62,15 +83,6 @@ Anything else. You'll have to manually deal with
 
 But hey, at least now you can focus on the important stuff! 
 
-## Usage 
-
-### Note: This package has not yet been published to pub. Be patient.
-1. pub global activate --source git https://github.com/blockforest/stagexl-converter-pubglobal
-2. Follow the instructions to add pub's /bin directory to your path
-3. stagexl_converter --source <PATH> --target <PATH> --dart-package <DESIRED_PACKAGE_NAME>
-
-## Examples
-Due to the nature of pub global packages, this edition comes without examples.
 
 ## Common Pitfalls you will tap into
 
