@@ -226,7 +226,7 @@ String _applyMagic(String f) {
   f = f.replaceAll(new RegExp("Boolean"), "bool");
   f = f.replaceAll(new RegExp("uint"), "int");
   f = f.replaceAll(new RegExp("Array"), "List");
-  f = f.replaceAll(new RegExp(".push"), ".add");
+  f = f.replaceAll(new RegExp("\\.push"), ".add");
   f = f.replaceAll(new RegExp("Vector"), "List");
   f = f.replaceAll(new RegExp("Dictionary"), "Map");
   f = f.replaceAllMapped(new RegExp("(\\s+)Object"), (Match m) => "${m[1]}Map");
