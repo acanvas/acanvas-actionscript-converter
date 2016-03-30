@@ -252,6 +252,7 @@ String _applyMagic(String f) {
   f = f.replaceAllMapped(new RegExp("toFixed\\((\\d+)\\)"), (Match m) => "toStringAsFixed(${m[1]})");
 
 
+
   // === StageXL specific ===
 
   //change the order of color and fill instructions for Graphics and BitmapData
