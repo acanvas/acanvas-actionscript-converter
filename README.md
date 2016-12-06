@@ -1,4 +1,4 @@
-## Röckdöt Converter - Pure Actionscript to StageXL Conversion Helper
+## Rockdot Converter - Pure Actionscript to StageXL Conversion Helper
 
 ### Target Audience
 
@@ -8,18 +8,18 @@ Because, let's face it, Flash in the browser doesn't have a future.
 
 So, I went down this path in 2014...
 
-### About Röckdöt Converter
+### About Rockdot Converter
 
-With the Dart syntax and StageXL API being quite similar to ActionScript, I wondered how I could port over to Dart in the laziest way possible, with as much automation as possible.
-I spent a bit on Abstract Syntax Tree conversion, but dropped it in favor of good old search and replace via Regular Expressions, 
-in order to be able to manually compare the converted file with the original in case of errors (which definitely will occur). 
-After a week of intense RegEx meditation (it was crazy), I was able to automate most of what's possible, more than enough to rely on the Dart Analyzer to identify any remaining conversion errors or incompatible APIs.
+With the Dart syntax and StageXL API being quite similar to ActionScript and Flash's display list, I wondered if I could port over to Dart in an automated way.
+I had a look at Abstract Syntax Tree conversion, but dropped it in favor of string manipulation through Regular Expressions.
+This made it easy to compare the converted file with the original, which greatly helps when fixing errors. And there will be errors for sure. Remember, Rockdot Converter is just a helper :-)  
+After a week of intense RegEx meditation (it was crazy), I was able to automate things enough to rely on the Dart Analyzer to identify any remaining conversion errors or incompatible APIs.
 
-So, have fun with this script, which will take up to 174% of pain out of the process, so that you can concentrate on converting just the instructions that matter. Look further down to get an idea where the helper helps.
+So, have fun with this script, which will take up to 1337% of pain out of the process, so that you can concentrate on converting just the instructions that matter. Look further down to get an idea where the helper helps.
 
-If you would like to see what evolved out of this tool I wrote in the summer of 2014, go to [Röckdöt Generator](https://github.com/blockforest/rockdot_generator). 
+If you would like to know what evolved out of this tool since I wrote it during summer 2014, go to [Rockdot CLI](https://github.com/blockforest/rockdot_generator).
 
-## Röckdöt Converter - Usage 
+## Rockdot Converter - Usage 
 
     $>  pub global activate --source git https://github.com/blockforest/stagexl-converter-pubglobal
     
@@ -28,7 +28,7 @@ If you would like to see what evolved out of this tool I wrote in the summer of 
     
 
 
-## What Röckdöt Converter does for you
+## What Rockdot Converter does for you
 
 ### Packages
 - replace package declarations with 'part of' directive
@@ -75,7 +75,7 @@ If you would like to see what evolved out of this tool I wrote in the summer of 
 - order of BitmapData.draw and BitmapData.fillColor (pure magic!)
 
 
-## What Röckdöt Converter does not do for you.   
+## What Rockdot Converter does not do for you.   
 Anything else. You'll have to manually deal with
 - differences between the API's of StageXL and Flash's DisplayList.
 - shortcomings of StageXL's DisplayList API's
@@ -84,14 +84,15 @@ Anything else. You'll have to manually deal with
 But hey, at least now you can focus on the important stuff! 
 
 
-## Common Pitfalls you will tap into
+## Common Pitfalls after conversion
 
-Everything is null by default. Even numbers (MEH!).
-Will fail:
+While there are other things impossible to automatically convert, the following two are encountered the most.
+
+Everything is null by default:
 int i;
-i++;
+i++; //null object error
 
-You can't set List like this: list[list.length] = value;
-A lot of AS people do it this way, though, because it is way more performant than Array.push
+You can't set List like this: 
+list[list.length] = value; //out of bounds error
 
-Also, see http://www.stagexl.org/docs/actionscript-dart.html for even more pitfalls.
+See http://www.stagexl.org/docs/actionscript-dart.html for more.
