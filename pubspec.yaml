@@ -1,12 +1,12 @@
-name: stagexl_converter
-version: 0.6.0
+name: acanvas_actionscript_converter
+version: 0.7.0
 author: Nils Döhring <nilsdoehring@gmail.com>
 description: Pure Actionscript to StageXL Conversion Helper.
-homepage: https://github.com/blockforest/stagexl-converter-pubglobal
+homepage: https://github.com/acanvas/acanvas-actionscript-converter
 environment:
-  sdk: '>=1.6.0'
+  sdk: '>=2.0.0 <3.0.0'
 dependencies:
   args: any
   path: any
 executables:
-  stagexl_converter: null
+  acanvas_converter: null

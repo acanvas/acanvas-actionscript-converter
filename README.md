@@ -1,4 +1,6 @@
-## Rockdot Converter - Pure Actionscript to StageXL Conversion Helper
+## Acanvas Converter
+
+Convert pure Actionscript to Dart/StageXL.
 
 ### Target Audience
 
@@ -8,27 +10,27 @@ Because, let's face it, Flash in the browser doesn't have a future.
 
 So, I went down this path in 2014...
 
-### About Rockdot Converter
+### About Acanvas Converter
 
 With the Dart syntax and StageXL API being quite similar to ActionScript and Flash's display list, I wondered if I could port over to Dart in an automated way.
 I had a look at Abstract Syntax Tree conversion, but dropped it in favor of string manipulation through Regular Expressions.
-This made it easy to compare the converted file with the original, which greatly helps when fixing errors. And there will be errors for sure. Remember, Rockdot Converter is just a helper :-)  
+This made it easy to compare the converted file with the original, which greatly helps when fixing errors. And there will be errors for sure. Remember, Acanvas Converter is just a helper :-)  
 After a week of intense RegEx meditation (it was crazy), I was able to automate things enough to rely on the Dart Analyzer to identify any remaining conversion errors or incompatible APIs.
 
 So, have fun with this script, which will take up to 1337% of pain out of the process, so that you can concentrate on converting just the instructions that matter. Look further down to get an idea where the helper helps.
 
-If you would like to know what evolved out of this tool since I wrote it during summer 2014, go to [Rockdot CLI](https://github.com/blockforest/rockdot_generator).
+If you would like to know what evolved out of this tool since I wrote it during summer 2014, go to [Acanvas CLI](https://github.com/acanvas/acanvas-generator).
 
-## Rockdot Converter - Usage 
+## Acanvas Converter - Usage 
 
-    $>  pub global activate --source git https://github.com/blockforest/stagexl-converter-pubglobal
+    $>  pub global activate --source git https://github.com/acanvas/acanvas-actionscript-converter
     
     # <PATH> can be absolute or relative.
-    $> stagexl_converter --source <PATH> --target <PATH> --dart-package <DESIRED_PACKAGE_NAME>
+    $> acanvas_converter --source <PATH> --target <PATH> --dart-package <DESIRED_PACKAGE_NAME>
     
 
 
-## What Rockdot Converter does for you
+## What Acanvas Converter does for you
 
 ### Packages
 - replace package declarations with 'part of' directive
@@ -75,7 +77,7 @@ If you would like to know what evolved out of this tool since I wrote it during 
 - order of BitmapData.draw and BitmapData.fillColor (pure magic!)
 
 
-## What Rockdot Converter does not do for you.   
+## What Acanvas Converter does not do for you.   
 Anything else. You'll have to manually deal with
 - differences between the API's of StageXL and Flash's DisplayList.
 - shortcomings of StageXL's DisplayList API's

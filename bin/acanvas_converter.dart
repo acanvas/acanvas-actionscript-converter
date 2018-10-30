@@ -43,7 +43,7 @@ import 'package:stagexl/stagexl.dart';
   Directory sourceDir = new Directory(join(source_basedir, as_package));
   if (sourceDir.existsSync()) {
     sourceDir.listSync(recursive: true, followLinks: false).forEach((FileSystemEntity entity) {
-      if (FileSystemEntity.typeSync(entity.path) == FileSystemEntityType.FILE && extension(entity.path).toLowerCase() == ".as") {
+      if (FileSystemEntity.typeSync(entity.path) == FileSystemEntityType.file && extension(entity.path).toLowerCase() == ".as") {
         _convert(entity.path);
       }
     });
@@ -64,10 +64,12 @@ dependencies:
     path: ${join(target_basedir, dart_package_name)}''';
   
   File pubspecRootFile = new File('pubspec.yaml').absolute;
-  String pubspecRootFileContent = pubspecRootFile.readAsStringSync();
-  if(! pubspecRootFileContent.contains(dart_package_name)){
-    pubspecRootFileContent = pubspecRootFileContent.split(new RegExp("dependencies\\s*:")).join(insertionString);
-    pubspecRootFile.writeAsStringSync( pubspecRootFileContent, mode: FileMode.WRITE);
+  if(pubspecRootFile.existsSync()){
+    String pubspecRootFileContent = pubspecRootFile.readAsStringSync();
+    if(! pubspecRootFileContent.contains(dart_package_name)){
+      pubspecRootFileContent = pubspecRootFileContent.split(new RegExp("dependencies\\s*:")).join(insertionString);
+      pubspecRootFile.writeAsStringSync( pubspecRootFileContent, mode: FileMode.write);
+    }
   }
 }
 
@@ -104,9 +106,6 @@ void _convert(String asFilePath) {
   //print("asFilePath: $asFilePath");
 
   File asFile = new File(asFilePath);
-
-  //File name, e.g. StarUnit.as
-  String asFileName = basename(asFile.path);
 
   //Package name, e.g. wonderfl/xmas
   String dartFilePath = asFilePath.replaceFirst(new RegExp(source_basedir + "/"), "");
@@ -288,7 +287,7 @@ String _applyMagic(String f) {
 }
 
 /// Manages the script's arguments and provides instructions and defaults for the --help option.
-void _setupArgs(List args) {
+void _setupArgs(List<String> args) {
   ArgParser argParser = new ArgParser();
   argParser.addOption('dart-package', abbr: 'd', defaultsTo: DEFAULT_DART_PACKAGE, help: 'The name of the package to be generated.', valueHelp: 'package', callback: (_dpackage) {
     dart_package_name = _dpackage;
@@ -306,7 +305,7 @@ void _setupArgs(List args) {
 
   argParser.addFlag('help', negatable: false, help: 'Displays the help.', callback: (help) {
     if (help) {
-      print(argParser.getUsage());
+      print(argParser.usage);
       exit(1);
     }
   });
